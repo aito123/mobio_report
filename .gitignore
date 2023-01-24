@@ -14,9 +14,9 @@
 # User-specific files
 .Ruserdata
 
-.R
-.qmd
-.Rmd
+*.R
+*.qmd
+*.Rmd
 
 #files
 data/
