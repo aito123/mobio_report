@@ -1,0 +1,26 @@
+project:
+  type: website
+
+lang: en
+
+execute:
+  freeze: auto  # re-render only when source changes
+  echo: false
+
+website:
+  title: "Mobio Reports"
+  navbar:
+    background: primary
+    right:
+      - href: index.qmd
+        text: "Home"
+      # - text: "Menu"
+      #   menu:
+      #     - "1. limpiando_data.qmd"
+      #     - "2. exploracion.qmd"
+      #     - "3. tipo_hashtags.qmd"
+
+format:
+  html:
+    theme: flatly
+    toc: true
