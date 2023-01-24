@@ -1,9 +1,22 @@
-.Rproj.user
-.Rhistory
-.Rdata
+# Other
 .httr-oauth
 .DS_Store
+
+# History files
+.Rhistory
+.Rapp.history
+.Rproj.user
+
+# Session Data files
+.RData
+.Rdata
+
+# User-specific files
+.Ruserdata
+
 .R
 .qmd
 .Rmd
+
+#files
 data/
