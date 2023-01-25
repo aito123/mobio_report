@@ -54,5 +54,26 @@
     "title": "Mobio Report",
     "section": "Obj 2: Origin of the problem",
     "text": "Obj 2: Origin of the problem\nA hypothesis of the origin of the problem, knowing that is a record situation,\nIn collaboration with Backend team, we determined the origin of the problem was in the API."
+  },
+  {
+    "objectID": "dates_problem.html#problem",
+    "href": "dates_problem.html#problem",
+    "title": "Date’s problem",
+    "section": "Problem",
+    "text": "Problem\n\nThe time & date-time variables appear in different formats in the data downloaded from BecharaReport API.\nSome values of date-time variables does not reflect the date-time of the user considering their timezone."
+  },
+  {
+    "objectID": "dates_problem.html#objectives",
+    "href": "dates_problem.html#objectives",
+    "title": "Date’s problem",
+    "section": "Objectives",
+    "text": "Objectives\n\nDescribe the problem.\nExplain the origin of the problem.\n\nFor the purpose of this report, we are going to use the data from BecharaReport API gathered in 2023-01-13. This data has 695031 observations and 80 variables, and can be found in the following Dropbox path:\nMobio Interactive Dropbox/Research/RWD/Shared R Scripts/Input csv/BecharaReportFull-2023-01-13T23_52_58.csv."
+  },
+  {
+    "objectID": "dates_problem.html#obj-1-describing-the-problem",
+    "href": "dates_problem.html#obj-1-describing-the-problem",
+    "title": "Date’s problem",
+    "section": "Obj 1: Describing the problem",
+    "text": "Obj 1: Describing the problem\nIn the AmDTx data downloaded from BecharaReport API we have the following time & date-time variables:\n\ncreated, session_start, session_finish, snapshot_start_pre, snapshot_finish_pre, snapshot_start_post, snapshot_finish_post, intent_start, intent_finish, redeem_date\n\n\n\n\n Selection of time & datetime variables considering user ID and session ID"
   }
 ]
