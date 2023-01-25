@@ -1,9 +1,58 @@
 [
   {
+    "objectID": "dates_problem.html",
+    "href": "dates_problem.html",
+    "title": "Date’s problem",
+    "section": "",
+    "text": "Something."
+  },
+  {
+    "objectID": "duplicate_problem.html#problem",
+    "href": "duplicate_problem.html#problem",
+    "title": "Duplicate’s problem",
+    "section": "Problem",
+    "text": "Problem\n\nThere are duplicates in the CSV data exported from BecharaReport API."
+  },
+  {
+    "objectID": "duplicate_problem.html#objectives",
+    "href": "duplicate_problem.html#objectives",
+    "title": "Duplicate’s problem",
+    "section": "Objectives",
+    "text": "Objectives\n\nDescribe the problem.\nExplain the origin of the problem.\n\nFor the purpose of this report, we are going to use the data from BecharaReport API gathered in 2022-12-24. This data has 552393 observations and 80 variables, and can be found in the following Dropbox path:\nMobio Interactive Dropbox/Research/RWD/Shared R Scripts/Input csv/."
+  },
+  {
+    "objectID": "duplicate_problem.html#obj-1-describing-the-problem",
+    "href": "duplicate_problem.html#obj-1-describing-the-problem",
+    "title": "Duplicate’s problem",
+    "section": "Obj 1: Describing the problem",
+    "text": "Obj 1: Describing the problem\nThe current approach to know how many AmDTx unique accounts created in the data is using the following code:\n\n\n\n\n  \n  Unique users with account creation type\n  \n  \n    \n      n\n    \n  \n  \n    732\n  \n  \n  \n\n\n\n\nAt 2022-12-24, we have 732 AmDTx unique accounts created using “account_creation” type. This type of observation is not present in every user, that is why there could be more users present in data.\nThis doesn’t solve duplicates problem, we are just telling R to count the distinct observations in the variable user_uuid filtering only the “account_creation” type.\nIf we want the make calculations about the user metrics, we need the unique observations in the data. For the purpose of this report we are going to select a random user and analyze its duplicates rows:\nUser: 19092f19-792f-42bc-b229-2444b52be4df\n\n\n\nThis user has 449 observations in data. At a glance we can see that this user actually has 16 unique observations. We can use the function distinct() to drop all the duplicates of an observation and only maintain the original one.\n\n\n\n All observation of sample user\n  \n\n\n\n\n\n\nIn this case, now we have 46 observations, which is less but is not 16 observations that is what we want.\nLet’s focus our attention in the session_uuid of the 46 observations. We can see that session_uuid = 292d1290-51a2-4cf2-89e3-7d26628a19a5 repeats 3 times.\n\n\n\n All duplicates of a same observation of sample user\n  \n\n\n\nWe can see that even if this are the same session_uuid, the same observation, there are incongruencies with the following variables:\n\nUpper-lower case problem:\n\nstandalone : has values formatted true/false and also TRUE/FALSE.\n\n\n\n\n\n Upper-lower case problem\n  \n\n\n\n\nRounding problem:\n\no2level_pre, hrv_low_freq_sum_pre, hrv_high_freq_sum_pre, hrv_low_freq_sum_post, hrv_high_freq_sum_post : the same observation could be rounded to the 6 decimal or sometimes more. Is probable that all numeric variables could have this problem.\nreported_stress_pre, reported_stress_post, mood_quality_pre, mood_quality_post : the same observation sometimes has one decimal.\n\n\n\n\n\n Rounding problem\n  \n\n\n\n\nComputing problem:\n\ncomputed_stress_pre, computed_stress_post : this variable has a major issue, because in some cases it reflects the accurate value (e.g 0.4224225) and in other cases its -1 (which is the default when de API finds missing values in this variable). This inconsistency could be a problem in the storage of the data when calling the API.\n\n\n\n\n\n Computing problem\n  \n\n\n\n\nUpdate problem:\n\nbadge : this is a different type of problem. Badge variable collects the information about the badges the user is rewarded. This field keeps updating through the duplicate observation.\n\n\n\n\n\n Update problem\n  \n\n\n\nThe update problem gives us some insight about the general problem in the database. We can see that the problem with the database is not a duplicate problem is a record situation.\n\nRecord situation\nUnderstanding the database as a record data can help us to solve the majority of the problems in the database.\nA solution for the record situation involves the following indications:\n\nRather than keep one of the duplicates randomnly, we can keep the latest observation of the recorded data.\n\nTo know the latest observation in the data, we need a unique id for each observation.\nThis approach can solve the upper-lower case problem, rounding problem, and update problem.\n\nAlthough only applying the solution of the latest observation doesn’t solve the computing problem. It’s necessary to ensure that the preserved observation has the correct computed_stress_pre, computed_stress_post and not only -1 when is not the case."
+  },
+  {
+    "objectID": "duplicate_problem.html#obj-2-origin-of-the-problem",
+    "href": "duplicate_problem.html#obj-2-origin-of-the-problem",
+    "title": "Duplicate’s problem",
+    "section": "Obj 2: Origin of the problem",
+    "text": "Obj 2: Origin of the problem\nA hypothesis of the origin of the problem, knowing that is a record situation,\nIn collaboration with Backend team, we determined the origin of the problem was in the API."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Mobio report",
     "section": "",
     "text": "Repository of Mobio report."
+  },
+  {
+    "objectID": "note.html",
+    "href": "note.html",
+    "title": "Mobio Report",
+    "section": "",
+    "text": "In this case, now we have 46 observations, which is less but is not 16 observations that is what we want.\nLet’s focus our attention in the session_uuid of the 46 observations. We can see that session_uuid = 292d1290-51a2-4cf2-89e3-7d26628a19a5 repeats 3 times.\nWe can see that even if this are the same session_uuid, the same observation, there are incongruencies with the following variables:\nThe update problem gives us some insight about the general problem in the database. We can see that the problem with the database is not a duplicate problem is a record situation."
+  },
+  {
+    "objectID": "note.html#obj-2-origin-of-the-problem",
+    "href": "note.html#obj-2-origin-of-the-problem",
+    "title": "Mobio Report",
+    "section": "Obj 2: Origin of the problem",
+    "text": "Obj 2: Origin of the problem\nA hypothesis of the origin of the problem, knowing that is a record situation,\nIn collaboration with Backend team, we determined the origin of the problem was in the API."
   }
 ]

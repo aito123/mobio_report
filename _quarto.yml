@@ -6,21 +6,23 @@ lang: en
 execute:
   freeze: auto  # re-render only when source changes
   echo: false
+  warning: false
+  message: false
 
 website:
-  title: "Mobio Reports"
+  title: "Mobio Report"
   navbar:
     background: primary
     right:
-      - href: index.qmd
-        text: "Home"
-      # - text: "Menu"
-      #   menu:
-      #     - "1. limpiando_data.qmd"
-      #     - "2. exploracion.qmd"
-      #     - "3. tipo_hashtags.qmd"
+      - text: "Home"
+        href: index.qmd
+      - text: "Menu"
+        menu:
+          - "duplicate_problem.qmd"
+          - "dates_problem.qmd"
 
 format:
   html:
     theme: flatly
     toc: true
+    tbl-cap-location: top

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mobio Report - Mobio report</title>
+<title>Mobio Report – note</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link" href="./index.html">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -108,31 +108,90 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#record-situation" id="toc-record-situation" class="nav-link active" data-scroll-target="#record-situation">Record situation</a></li>
+  <li><a href="#obj-2-origin-of-the-problem" id="toc-obj-2-origin-of-the-problem" class="nav-link" data-scroll-target="#obj-2-origin-of-the-problem">Obj 2: Origin of the problem</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Mobio report</h1>
+
+
+<div class="cell">
+
 </div>
+<div class="cell">
+
+</div>
+<p>In this case, now we have 46 observations, which is less but is not 16 observations that is what we want.</p>
+<p>Let’s focus our attention in the <code>session_uuid</code> of the 46 observations. We can see that <code>session_uuid</code> = 292d1290-51a2-4cf2-89e3-7d26628a19a5 repeats 3 times.</p>
+<div class="cell">
+
+</div>
+<p>We can see that even if this are the same session_uuid, the same observation, there are incongruencies with the following variables:</p>
+<ul>
+<li><p><strong>Upper-lower case problem</strong>:</p>
+<ul>
+<li><code>standalone</code> : has values formatted true/false and also TRUE/FALSE.</li>
+</ul></li>
+</ul>
+<div class="cell" data-tbl-cap="Upper-lower case problem">
+
+</div>
+<ul>
+<li><p><strong>Rounding problem:</strong></p>
+<ul>
+<li><p><code>o2level_pre, hrv_low_freq_sum_pre, hrv_high_freq_sum_pre, hrv_low_freq_sum_post, hrv_high_freq_sum_post</code> : the same observation could be rounded to the 6 decimal or sometimes more. Is probable that all numeric variables could have this problem.</p></li>
+<li><p><code>reported_stress_pre, reported_stress_post, mood_quality_pre, mood_quality_post</code> : the same observation sometimes has one decimal.</p></li>
+</ul></li>
+</ul>
+<div class="cell" data-tbl-cap="Rounding problem">
+
+</div>
+<ul>
+<li><strong>Computing problem:</strong>
+<ul>
+<li><code>computed_stress_pre, computed_stress_post</code> : this variable has a <strong>major issue</strong>, because in some cases it reflects the accurate value (e.g 0.4224225) and in other cases its -1 (which is the default when de API finds missing values in this variable). This inconsistency could be a problem in the storage of the data when calling the API.</li>
+</ul></li>
+</ul>
+<div class="cell" data-tbl-cap="Computing problem">
+
+</div>
+<ul>
+<li><strong>Update problem:</strong>
+<ul>
+<li><code>badge</code> : this is a different type of problem. Badge variable collects the information about the badges the user is rewarded. This field keeps updating through the duplicate observation.</li>
+</ul></li>
+</ul>
+<div class="cell" data-tbl-cap="Update problem">
+
+</div>
+<p>The <strong>update problem</strong> gives us some insight about the general problem in the database. We can see that the problem with the database is not a <em>duplicate problem</em> is a <em>record situation</em>.</p>
+<section id="record-situation" class="level3">
+<h3 class="anchored" data-anchor-id="record-situation">Record situation</h3>
+<p>Understanding the database as a record data can help us to solve the majority of the problems in the database.</p>
+<p>A solution for the record situation involves the following indications:</p>
+<ol type="1">
+<li><p>Rather than keep one of the duplicates randomnly, we can keep <strong>the latest observation</strong> of the recorded data.</p>
+<ol type="1">
+<li><p>To know the latest observation in the data, we need a unique id for each observation.</p></li>
+<li><p>This approach can solve the <strong>upper-lower case problem</strong>, <strong>rounding problem</strong>, and <strong>update problem</strong>.</p></li>
+</ol></li>
+<li><p>Although only applying the solution of the <strong>latest observation</strong> doesn’t solve the <strong>computing problem</strong>. It’s necessary to ensure that the preserved observation has the correct <code>computed_stress_pre</code>, <code>computed_stress_post</code> and not only -1 when is not the case.</p></li>
+</ol>
+</section>
+<section id="obj-2-origin-of-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="obj-2-origin-of-the-problem">Obj 2: Origin of the problem</h2>
+<p>A hypothesis of the origin of the problem, knowing that is a record situation,</p>
+<p>In collaboration with Backend team, we determined the origin of the problem was in the API.</p>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<p>Repository of Mobio report.</p>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
