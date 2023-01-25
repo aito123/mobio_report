@@ -176,9 +176,18 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="obj-1-describing-the-problem" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="obj-1-describing-the-problem">Obj 1: Describing the problem</h2>
-<p>In the AmDTx data downloaded from BecharaReport API we have the following time &amp; date-time variables:</p>
+<p>In the AmDTx data downloaded from BecharaReport API we have the following time &amp; date-time variables (definitions from BecharaReport+):</p>
 <ul>
-<li><code>created, session_start, session_finish, snapshot_start_pre, snapshot_finish_pre, snapshot_start_post, snapshot_finish_post, intent_start, intent_finish, redeem_date</code></li>
+<li><code>created</code>: Timestamp of account creation</li>
+<li><code>session_start</code>: unique timestamp of AmDTx session start</li>
+<li><code>session_finish</code>: unique timestamp of AmDTx session finish</li>
+<li><code>snapshot_start_pre</code>: unique timestamp of AmDTx snapshot start (pre session or standalone)</li>
+<li><code>snapshot_finish_pre</code>: unique timestamp of AmDTx snapshot finish (pre session or standalone)</li>
+<li><code>snapshot_start_post</code>: unique timestamp of AmDTx snapshot start (post session or standalone)</li>
+<li><code>snapshot_finish_post</code>: unique timestamp of AmDTx snapshot finish (post session or standalone)</li>
+<li><code>intent_start</code>: timestamp of user initiating Intent portion of My Moment feature</li>
+<li><code>intent_finish</code>: timestamp of user completing Intent portion of My Moment feature</li>
+<li><code>redeem_date</code>: when a coupon was applied to a user’s account</li>
 </ul>
 <div class="cell page-columns page-full">
 <div class="cell-output-display column-screen-inset">
@@ -190,6 +199,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<ul>
+<li><p>Types of time format.</p></li>
+<li><p>Atypic values in variables.</p></li>
+<li><p>UTC 00:00 problem considering country city of the user. Better using longitude and latitude.</p></li>
+<li><p>Work on progress…</p></li>
+</ul>
 
 
 </section>
