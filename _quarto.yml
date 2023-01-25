@@ -26,3 +26,4 @@ format:
     theme: flatly
     toc: true
     tbl-cap-location: top
+    fig-cap-location: top
