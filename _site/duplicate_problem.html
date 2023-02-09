@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="ejbbravfbr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="mjlpxmylgv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
   
   <table class="gt_table" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif; display: table; border-collapse: collapse; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: 200px; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3;" width="200" bgcolor="#FFFFFF"><caption>Unique users with account creation type</caption>
   
@@ -301,6 +301,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>The <strong>update problem</strong> gives us some insight about the general problem in the database. We can see that the problem with the database is not a <em>duplicate problem</em> is a <em>record situation</em>.</p>
+<ul>
+<li><p><strong>Duplicates inside static data:</strong></p>
+<ul>
+<li>There wer duplicated observations inside static data, probably in Lost data from China (CN).</li>
+</ul></li>
+<li><p><strong>Duplicates bewteen static data and dynamic data:</strong></p>
+<ul>
+<li>Probably Lost data from China (CN) had observations already present in Am current data (BecharaReport API).</li>
+</ul></li>
+<li><p><strong>Duplicated paths in Meditation table (MT)</strong></p>
+<ul>
+<li>MT table is been joined with Am data by the audio path (.ogg file) to get more information about the meditation characteristics. Although there are duplicate paths in MT data (for example, a same audio log is repeated in different languages). This is generating duplicates when joined.</li>
+</ul></li>
+</ul>
 <section id="record-situation" class="level3">
 <h3 class="anchored" data-anchor-id="record-situation">Record situation</h3>
 <p>Understanding the database as a record data can help us to solve the majority of the problems in the database.</p>
