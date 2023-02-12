@@ -75,5 +75,33 @@
     "title": "Mobio Report",
     "section": "Obj 2: Origin of the problem",
     "text": "Obj 2: Origin of the problem\nA hypothesis of the origin of the problem, knowing that is a record situation,\nIn collaboration with Backend team, we determined the origin of the problem was in the API."
+  },
+  {
+    "objectID": "reported_stress_problem.html#problem",
+    "href": "reported_stress_problem.html#problem",
+    "title": "Reported stress problem",
+    "section": "Problem",
+    "text": "Problem\n\nReported_stress variables are defaulting all observations to -1, left_blank, etc."
+  },
+  {
+    "objectID": "reported_stress_problem.html#objectives",
+    "href": "reported_stress_problem.html#objectives",
+    "title": "Reported stress problem",
+    "section": "Objectives",
+    "text": "Objectives\n\nDescribe the problem.\nExplain the origin of the problem.\n\nFor the purpose of this report, we are going to use the data from BecharaReport API gathered in 2023-02-11. This data has 1’256’346 observations and 80 variables, and can be found in the following Dropbox path:\nMobio Interactive Dropbox/Research/RWD/Shared R Scripts/Input csv/BecharaReportFull-2023-02-11T01_34_20.csv."
+  },
+  {
+    "objectID": "reported_stress_problem.html#obj-1-describing-the-problem",
+    "href": "reported_stress_problem.html#obj-1-describing-the-problem",
+    "title": "Reported stress problem",
+    "section": "Obj 1: Describing the problem",
+    "text": "Obj 1: Describing the problem\nAfter applying the procedure to reduce the number of duplicates in the data, we have 71’135 observations in data.\n\nAbout Reported stress\nReported stress variables (reported_stress_pre & reported_stress_post) capture the information from the stress slider in the snapshot interface:\n\n\nStress slidebar can go from 0 to 1\n\n\n\nThis information is present in all types of observation with the exception of account_creation.\nWhen this field of the snapshot interface is left blank or there’s an error in capturing this information, the application fills this variable with default values as -1, -1.0, left_blank.\nThis scenario should be the exception, but we will see in the data that is actually the norm.\n\n\n\n\n\nIn this plot we have filtered out the observation type that are account_creation, then we grouped the observations by month and divide the normal values between 0 and 1 from the missing default values: -1, -1.0, left_blank.\nAs we can see in the plot, historically we had more missing default values than normal values which is data we can work with.\n\n\n\n\n\nAlthough, if we consider zero also as a possible value inserted when data is missing, we can see that since 2022 we have only recorded missing default values in the variable reported_stress_pre.\n\n\n\n\n\nAs in the previous case, reported_stress_post has historically been populated with missing default values.\n\n\n\n\n\nAnd if we considered zero as a possible default value then since 2022 we had only recorded default values in this two variables."
+  },
+  {
+    "objectID": "reported_stress_problem.html#obj-2-origin-of-the-problem",
+    "href": "reported_stress_problem.html#obj-2-origin-of-the-problem",
+    "title": "Reported stress problem",
+    "section": "Obj 2: Origin of the problem",
+    "text": "Obj 2: Origin of the problem\n…Check SQLPad"
   }
 ]
