@@ -102,6 +102,6 @@
     "href": "reported_stress_problem.html#obj-2-origin-of-the-problem",
     "title": "Reported stress problem",
     "section": "Obj 2: Origin of the problem",
-    "text": "Obj 2: Origin of the problem\n…Check SQLPad"
+    "text": "Obj 2: Origin of the problem\nWhen checking the SQL Pad, we can see that the problem is also present in the database.\nFor example, if we query a tabular table to count the values of reported_stress_pre between 2022 and 2023 in the server AU_DB_PROD we could see the following using this SQL syntax:\nselect reported_stress, COUNT(*)\nfrom snapshots\nwhere\n(start BETWEEN '2022-01-01'AND '2023-02-12')\nGROUP BY reported_stress\n\n\n\nreported_stress\ncount\n\n\n\n\n-1\n536"
   }
 ]

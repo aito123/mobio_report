@@ -225,7 +225,27 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="obj-2-origin-of-the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="obj-2-origin-of-the-problem">Obj 2: Origin of the problem</h2>
-<p>…Check SQLPad</p>
+<p>When checking the SQL Pad, we can see that the problem is also present in the database.</p>
+<p>For example, if we query a tabular table to count the values of <code>reported_stress_pre</code> between 2022 and 2023 in the server <strong>AU_DB_PROD</strong> we could see the following using this SQL syntax:</p>
+<pre class="sql-postgresql"><code>select reported_stress, COUNT(*)
+from snapshots
+where
+(start BETWEEN '2022-01-01'AND '2023-02-12')
+GROUP BY reported_stress</code></pre>
+<table class="table">
+<thead>
+<tr class="header">
+<th>reported_stress</th>
+<th>count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-1</td>
+<td>536</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
