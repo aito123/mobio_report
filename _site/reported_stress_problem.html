@@ -232,7 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="problem" class="level2">
 <h2 class="anchored" data-anchor-id="problem">Problem</h2>
 <ul>
-<li>Reported_stress variables are defaulting all observations to <code>-1</code>, <code>left_blank</code>, etc.</li>
+<li>Reported_stress variables are defaulting all observations to <code>-1</code>, <code>left_blank</code>, <code>NA</code>, etc.</li>
 </ul>
 </section>
 <section id="objectives" class="level2">
@@ -257,14 +257,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </figure>
 </div>
 <p>This information is present in all types of observation with the exception of <code>account_creation</code>.</p>
-<p>When this field of the snapshot interface is left blank or there’s an error in capturing this information, the application fills this variable with default values as <code>-1</code>, <code>-1.0</code>, <code>left_blank</code>.</p>
+<p>When this field of the snapshot interface is left blank or there’s an error in capturing this information, the application fills this variable with default values as <code>-1</code>, <code>-1.0</code>, <code>left_blank</code>, <code>NA</code>.</p>
 <p>This scenario should be the exception, but we will see in the data that is actually the norm.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="reported_stress_problem_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>In this plot we have filtered out the observation type that are <code>account_creation</code>, then we grouped the observations by month and divide the normal values between 0 and 1 from the missing default values: <code>-1</code>, <code>-1.0</code>, <code>left_blank</code>.</p>
+<p>In this plot we have filtered out the observation type that are <code>account_creation</code>, then we grouped the observations by month and divide the normal values between 0 and 1 from the missing default values: <code>-1</code>, <code>-1.0</code>, <code>left_blank</code>, <code>NA</code>.</p>
 <p>As we can see in the plot, historically we had more missing default values than normal values which is data we can work with.</p>
 <div class="cell">
 <div class="cell-output-display">
