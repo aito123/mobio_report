@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/camh_problem.html",
       "/posts/dates_problem.html",
       "/posts/reported_stress_problem.html",
       "/posts/duplicate_problem.html"

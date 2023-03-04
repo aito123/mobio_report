@@ -4,7 +4,28 @@
     "href": "index.html",
     "title": "Mobio reports",
     "section": "",
-    "text": "Repository of Mobio Reports.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nDate’s problem\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nReported stress problem\n\n\n\n\n\n \n\n\n\nJan 24, 2023\n\n\nDuplicate’s problem\n\n\n\n\n\n\nNo matching items"
+    "text": "Repository of Mobio Reports.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nMar 4, 2023\n\n\nCAMH sid issue\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nDate’s problem\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nReported stress problem\n\n\n\n\n\n\n\nJan 24, 2023\n\n\nDuplicate’s problem\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/camh_problem.html#problem",
+    "href": "posts/camh_problem.html#problem",
+    "title": "CAMH sid issue",
+    "section": "Problem",
+    "text": "Problem\n\nIn communication with Alexander Daros from CAMH Institute, it is informed that there is a problem with sid code of some users that are been defaulted to null using coupon_code variable."
+  },
+  {
+    "objectID": "posts/camh_problem.html#objectives",
+    "href": "posts/camh_problem.html#objectives",
+    "title": "CAMH sid issue",
+    "section": "Objectives",
+    "text": "Objectives\n\nIdentify the CAMH observation with sid defaulted to null.\n\nFor the purpose of this report, we are going to use the data from BecharaReport API gathered in 2023-03-04. This data has 1’780’739 observations and 80 variables, and can be found in the following Dropbox path:\nMobio Interactive Dropbox/Research/RWD/Shared R Scripts/Input csv/BecharaReportFull-2023-03-04T05_15_17.csv"
+  },
+  {
+    "objectID": "posts/camh_problem.html#obj-1-identifying-observations",
+    "href": "posts/camh_problem.html#obj-1-identifying-observations",
+    "title": "CAMH sid issue",
+    "section": "Obj 1: Identifying observations",
+    "text": "Obj 1: Identifying observations\nAfter applying the procedure to reduce the number of duplicates in the data, we have 71’897 observations in data.\nAlex already identified half of CAMH users with null sid and provided the following conversion:\n\n\n\ncoupon_code\ncurrent_sid\nnew_sid\n\n\n\n\nufbtyvp2\nnull\ncamh_7004\n\n\njgsnb6d8\nnull\ncamh_7007\n\n\np5xmktv8\nnull\ncamh_7025\n\n\nmengc4dt\nnull\ncamh_7034\n\n\na4ph6gp8\nnull\ncamh_7034\n\n\n3v4jcxnc\nnull\ncamh_7037\n\n\nydxbcyqu\nnull\ncamh_7026\n\n\nbxab7jeh\nnull\ncamh_7053\n\n\nzqr73whw\nnull\ncamh_7057\n\n\nyd5vnj95\nnull\ncamh_7068\n\n\nwg3wx7ak\nnull\ncamh_7073\n\n\n66gp5h94\nnull\ncamh_7078\n\n\nr65y6hp7\nnull\ncamh_7077\n\n\nxjeg249g\nnull\ncamh_7076\n\n\n45j4vt7v\nnull\ncamh_7086\n\n\nvt6xbrbr\nnull\ncamh_7096\n\n\nn8bvq4up\nnull\ncamh_7094\n\n\ns9j2wjnu\nnull\ncamh_7104\n\n\nv53hmcz8\nnull\ncamh_7104\n\n\nphhpyzv3\nnull\ncamh_7111\n\n\nzxkaa578\nnull\ncamh_7112\n\n\nb5tzbeh4\nnull\ncamh_7127\n\n\nmtn6kp3f\nnull\ncamh_7131\n\n\nxvgaactr\nnull\ncamh_7137\n\n\njupk62f4\nnull\ncamh_7141\n\n\n\nIs important to mention that there are not user_uuid with the same sid correction.\nThe remaining cases that are null are the following:\n\n\n\n\ncoupon_code\ncurrent_sid\nnew_sid\n\n\n\n\n6yp59wdk\ncamh_null\n\n\n\nxkevd9da\nnull\n\n\n\nf4smzshd\nnull\n\n\n\ns6dkng9d\nnull\n\n\n\n28qxp744\nnull\n\n\n\nkxtf4umn\nnull\n\n\n\nrzx6q8mt\nnull\n\n\n\n4njqzx2e\nnull\n\n\n\naeyfr9ec\nnull\n\n\n\naf3u42s6\nnull\n\n\n\ngdy5ur6n\nnull\n\n\n\nnbf9zuzc\nnull\n\n\n\nb3upeaft\nnull\n\n\n\neeue6jd4\nnull\n\n\n\nbfqp35wx\nnull\n\n\n\ndgsbjt8b\nnull\n\n\n\ncf42ydk5\nnull\n\n\n\nrdqhctrf\nnull\n\n\n\nnqzycgmj\nnull\n\n\n\nqj3j9sgd\nnull\n\n\n\nymhecrng\nnull\n\n\n\nn6mwhufq\nnull\n\n\n\n6pe4gw6z\nnull\n\n\n\nsmmeerwr\ncamh_null\n\n\n\nhkeg45y2\nnull\n\n\n\nfkduwsss\nnull\n\n\n\n6uk9kqca\ncamh_null\n\n\n\nno id\nnull\n\n\n\ns63yez77\nnull\n\n\n\n4d5qy3j6\nnull\n\n\n\nxqrr5tej\nnull"
   },
   {
     "objectID": "posts/dates_problem.html#problem",

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Santiago Sotelo">
+<meta name="dcterms.date" content="2023-03-04">
+
+<title>Mobio Report - CAMH sid issue</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Mobio Report</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problem" id="toc-problem" class="nav-link active" data-scroll-target="#problem">Problem</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#obj-1-identifying-observations" id="toc-obj-1-identifying-observations" class="nav-link" data-scroll-target="#obj-1-identifying-observations">Obj 1: Identifying observations</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CAMH sid issue</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Santiago Sotelo </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 4, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+
+</div>
+<section id="problem" class="level2">
+<h2 class="anchored" data-anchor-id="problem">Problem</h2>
+<ul>
+<li>In communication with Alexander Daros from CAMH Institute, it is informed that there is a problem with sid code of some users that are been defaulted to <code>null</code> using <code>coupon_code</code> variable.</li>
+</ul>
+</section>
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<ol type="1">
+<li>Identify the CAMH observation with sid defaulted to <code>null</code>.</li>
+</ol>
+<p>For the purpose of this report, we are going to use the data from BecharaReport API gathered in 2023-03-04. This data has 1’780’739 observations and 80 variables, and can be found in the following Dropbox path:</p>
+<p><code>Mobio Interactive Dropbox/Research/RWD/Shared R Scripts/Input csv/BecharaReportFull-2023-03-04T05_15_17.csv</code></p>
+</section>
+<section id="obj-1-identifying-observations" class="level2">
+<h2 class="anchored" data-anchor-id="obj-1-identifying-observations">Obj 1: Identifying observations</h2>
+<p>After applying the procedure to reduce the number of duplicates in the data, we have 71’897 observations in data.</p>
+<p>Alex already identified half of CAMH users with <code>null</code> sid and provided the following conversion:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>coupon_code</th>
+<th>current_sid</th>
+<th>new_sid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ufbtyvp2</td>
+<td>null</td>
+<td>camh_7004</td>
+</tr>
+<tr class="even">
+<td>jgsnb6d8</td>
+<td>null</td>
+<td>camh_7007</td>
+</tr>
+<tr class="odd">
+<td>p5xmktv8</td>
+<td>null</td>
+<td>camh_7025</td>
+</tr>
+<tr class="even">
+<td>mengc4dt</td>
+<td>null</td>
+<td>camh_7034</td>
+</tr>
+<tr class="odd">
+<td>a4ph6gp8</td>
+<td>null</td>
+<td>camh_7034</td>
+</tr>
+<tr class="even">
+<td>3v4jcxnc</td>
+<td>null</td>
+<td>camh_7037</td>
+</tr>
+<tr class="odd">
+<td>ydxbcyqu</td>
+<td>null</td>
+<td>camh_7026</td>
+</tr>
+<tr class="even">
+<td>bxab7jeh</td>
+<td>null</td>
+<td>camh_7053</td>
+</tr>
+<tr class="odd">
+<td>zqr73whw</td>
+<td>null</td>
+<td>camh_7057</td>
+</tr>
+<tr class="even">
+<td>yd5vnj95</td>
+<td>null</td>
+<td>camh_7068</td>
+</tr>
+<tr class="odd">
+<td>wg3wx7ak</td>
+<td>null</td>
+<td>camh_7073</td>
+</tr>
+<tr class="even">
+<td>66gp5h94</td>
+<td>null</td>
+<td>camh_7078</td>
+</tr>
+<tr class="odd">
+<td>r65y6hp7</td>
+<td>null</td>
+<td>camh_7077</td>
+</tr>
+<tr class="even">
+<td>xjeg249g</td>
+<td>null</td>
+<td>camh_7076</td>
+</tr>
+<tr class="odd">
+<td>45j4vt7v</td>
+<td>null</td>
+<td>camh_7086</td>
+</tr>
+<tr class="even">
+<td>vt6xbrbr</td>
+<td>null</td>
+<td>camh_7096</td>
+</tr>
+<tr class="odd">
+<td>n8bvq4up</td>
+<td>null</td>
+<td>camh_7094</td>
+</tr>
+<tr class="even">
+<td>s9j2wjnu</td>
+<td>null</td>
+<td>camh_7104</td>
+</tr>
+<tr class="odd">
+<td>v53hmcz8</td>
+<td>null</td>
+<td>camh_7104</td>
+</tr>
+<tr class="even">
+<td>phhpyzv3</td>
+<td>null</td>
+<td>camh_7111</td>
+</tr>
+<tr class="odd">
+<td>zxkaa578</td>
+<td>null</td>
+<td>camh_7112</td>
+</tr>
+<tr class="even">
+<td>b5tzbeh4</td>
+<td>null</td>
+<td>camh_7127</td>
+</tr>
+<tr class="odd">
+<td>mtn6kp3f</td>
+<td>null</td>
+<td>camh_7131</td>
+</tr>
+<tr class="even">
+<td>xvgaactr</td>
+<td>null</td>
+<td>camh_7137</td>
+</tr>
+<tr class="odd">
+<td>jupk62f4</td>
+<td>null</td>
+<td>camh_7141</td>
+</tr>
+</tbody>
+</table>
+<p>Is important to mention that there are not <code>user_uuid</code> with the same <code>sid</code> correction.</p>
+<p>The remaining cases that are <code>null</code> are the following:</p>
+<div class="cell-output-display">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">coupon_code</th>
+<th style="text-align: left;">current_sid</th>
+<th style="text-align: left;">new_sid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">6yp59wdk</td>
+<td style="text-align: left;">camh_null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">xkevd9da</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">f4smzshd</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">s6dkng9d</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">28qxp744</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">kxtf4umn</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">rzx6q8mt</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4njqzx2e</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">aeyfr9ec</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">af3u42s6</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gdy5ur6n</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">nbf9zuzc</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b3upeaft</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">eeue6jd4</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bfqp35wx</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dgsbjt8b</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cf42ydk5</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">rdqhctrf</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">nqzycgmj</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">qj3j9sgd</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ymhecrng</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">n6mwhufq</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6pe4gw6z</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">smmeerwr</td>
+<td style="text-align: left;">camh_null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hkeg45y2</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fkduwsss</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6uk9kqca</td>
+<td style="text-align: left;">camh_null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">no id</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">s63yez77</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4d5qy3j6</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">xqrr5tej</td>
+<td style="text-align: left;">null</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
