@@ -16,11 +16,6 @@ website:
     right:
       - text: "Home"
         href: index.qmd
-      - text: "Menu"
-        menu:
-          - "duplicate_problem.qmd"
-          - "dates_problem.qmd"
-          - "reported_stress_problem.qmd"
 
 format:
   html:
