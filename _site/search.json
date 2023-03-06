@@ -4,21 +4,21 @@
     "href": "index.html",
     "title": "Mobio reports",
     "section": "",
-    "text": "Repository of Mobio Reports.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nMar 4, 2023\n\n\nCAMH sid issue\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nDate’s problem\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nReported stress problem\n\n\n\n\n\n\n\nJan 24, 2023\n\n\nDuplicate’s problem\n\n\n\n\n\n\nNo matching items"
+    "text": "Repository of Mobio Reports.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nMar 5, 2023\n\n\nCAMH sid issue\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nDate’s problem\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nReported stress problem\n\n\n\n\n\n\n\nJan 24, 2023\n\n\nDuplicate’s problem\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/camh_problem.html#problem",
     "href": "posts/camh_problem.html#problem",
     "title": "CAMH sid issue",
     "section": "Problem",
-    "text": "Problem\n\nIn communication with Alexander Daros from CAMH Institute, it is informed that there is a problem with sid code of some users that are been defaulted to null using coupon_code variable."
+    "text": "Problem\n\nIn communication with Alexander Daros from CAMH Institute, it is informed that there is a problem with sid code of some users that are been defaulted to null"
   },
   {
     "objectID": "posts/camh_problem.html#objectives",
     "href": "posts/camh_problem.html#objectives",
     "title": "CAMH sid issue",
     "section": "Objectives",
-    "text": "Objectives\n\nIdentify the CAMH observation with sid defaulted to null.\n\nFor the purpose of this report, we are going to use the data from BecharaReport API gathered in 2023-03-04. This data has 1’780’739 observations and 80 variables, and can be found in the following Dropbox path:\nMobio Interactive Dropbox/Research/RWD/Shared R Scripts/Input csv/BecharaReportFull-2023-03-04T05_15_17.csv"
+    "text": "Objectives\n\nIdentify the CAMH observation with sid defaulted to null and other problems in sid variable.\n\nFor the purpose of this report, we are going to use the data from BecharaReport API gathered in 2023-03-04. This data has 1’780’739 observations and 80 variables, and can be found in the following Dropbox path:\nMobio Interactive Dropbox/Research/RWD/Shared R Scripts/Input csv/BecharaReportFull-2023-03-04T05_15_17.csv\nAfter applying the procedure to reduce the number of duplicates in the data, we have 71’897 observations in data.\nLet’s enumerate the issues with CAMH sid variable:"
   },
   {
     "objectID": "posts/camh_problem.html#obj-1-identifying-observations",
@@ -110,5 +110,26 @@
     "title": "Reported stress problem",
     "section": "Obj 2: Origin of the problem",
     "text": "Obj 2: Origin of the problem\nWhen checking the SQL Pad, we can see that the problem is also present in the database.\nFor example, if we query a tabular table to count the values of reported_stress_pre between 2022 and 2023 we could see the following using this SQL syntax in each server:\nselect reported_stress, COUNT(*)\nfrom snapshots\nwhere\n(start BETWEEN '2022-01-01'AND '2023-02-12')\nGROUP BY reported_stress\n\nAU_DB_PRODCA_DB_PRODEU_DB_PRODHK_DB_PRODSG_DB_PROD\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n-1\n536\n\n\n\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n0\n4\n\n\n-1\n4655\n\n\n\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n-1\n215\n\n\n\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n-1\n23\n\n\n1\n2\n\n\n\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n0\n274\n\n\n-1\n1122"
+  },
+  {
+    "objectID": "posts/camh_problem.html#identifying-null-observations",
+    "href": "posts/camh_problem.html#identifying-null-observations",
+    "title": "CAMH sid issue",
+    "section": "Identifying null observations",
+    "text": "Identifying null observations\nAlex already identified half of CAMH users with null sid, using coupon_code variable, and provided the following conversion:\n\n\n\ncoupon_code\ncurrent_sid\nnew_sid\n\n\n\n\nufbtyvp2\nnull\ncamh_7004\n\n\njgsnb6d8\nnull\ncamh_7007\n\n\np5xmktv8\nnull\ncamh_7025\n\n\nmengc4dt\nnull\ncamh_7034\n\n\na4ph6gp8\nnull\ncamh_7034\n\n\n3v4jcxnc\nnull\ncamh_7037\n\n\nydxbcyqu\nnull\ncamh_7026\n\n\nbxab7jeh\nnull\ncamh_7053\n\n\nzqr73whw\nnull\ncamh_7057\n\n\nyd5vnj95\nnull\ncamh_7068\n\n\nwg3wx7ak\nnull\ncamh_7073\n\n\n66gp5h94\nnull\ncamh_7078\n\n\nr65y6hp7\nnull\ncamh_7077\n\n\nxjeg249g\nnull\ncamh_7076\n\n\n45j4vt7v\nnull\ncamh_7086\n\n\nvt6xbrbr\nnull\ncamh_7096\n\n\nn8bvq4up\nnull\ncamh_7094\n\n\ns9j2wjnu\nnull\ncamh_7104\n\n\nv53hmcz8\nnull\ncamh_7104\n\n\nphhpyzv3\nnull\ncamh_7111\n\n\nzxkaa578\nnull\ncamh_7112\n\n\nb5tzbeh4\nnull\ncamh_7127\n\n\nmtn6kp3f\nnull\ncamh_7131\n\n\nxvgaactr\nnull\ncamh_7137\n\n\njupk62f4\nnull\ncamh_7141\n\n\n\nThe remaining cases that are null are the following:\n\n\n\n\ncoupon_code\ncurrent_sid\nnew_sid\n\n\n\n\n6yp59wdk\ncamh_null\n\n\n\nxkevd9da\nnull\n\n\n\nf4smzshd\nnull\n\n\n\ns6dkng9d\nnull\n\n\n\n28qxp744\nnull\n\n\n\nkxtf4umn\nnull\n\n\n\nrzx6q8mt\nnull\n\n\n\n4njqzx2e\nnull\n\n\n\naeyfr9ec\nnull\n\n\n\naf3u42s6\nnull\n\n\n\ngdy5ur6n\nnull\n\n\n\nnbf9zuzc\nnull\n\n\n\nb3upeaft\nnull\n\n\n\neeue6jd4\nnull\n\n\n\nbfqp35wx\nnull\n\n\n\ndgsbjt8b\nnull\n\n\n\ncf42ydk5\nnull\n\n\n\nrdqhctrf\nnull\n\n\n\nnqzycgmj\nnull\n\n\n\nqj3j9sgd\nnull\n\n\n\nymhecrng\nnull\n\n\n\nn6mwhufq\nnull\n\n\n\n6pe4gw6z\nnull\n\n\n\nsmmeerwr\ncamh_null\n\n\n\nhkeg45y2\nnull\n\n\n\nfkduwsss\nnull\n\n\n\n6uk9kqca\ncamh_null\n\n\n\nno id\nnull\n\n\n\ns63yez77\nnull\n\n\n\n4d5qy3j6\nnull\n\n\n\nxqrr5tej\nnull"
+  },
+  {
+    "objectID": "posts/camh_problem.html#fixing-camh-prefix-in-sid-observations",
+    "href": "posts/camh_problem.html#fixing-camh-prefix-in-sid-observations",
+    "title": "CAMH sid issue",
+    "section": "Fixing CAMH prefix in sid observations",
+    "text": "Fixing CAMH prefix in sid observations\nThere are some sid codes that does not have the “camh_” prefix. Here a table with the observations with a suggested new sid:\n\n\n\n\ncoupon_code\ncurrent_sid\nnew_sid\n\n\n\n\ngjth44kr\n7148\ncamh_7148\n\n\n4p8zkjmf\n7157\ncamh_7157\n\n\ntvymhgqz\n7146\ncamh_7146\n\n\ncjmsh3r9\n7003\ncamh_7003\n\n\ng6r4wqmr\n9999\ncamh_9999\n\n\ns8ssgf6t\n7162\ncamh_7162\n\n\n5ckf36y3\n7151\ncamh_7151\n\n\n5jn6evad\n7142\ncamh_7142\n\n\n56skcxn3\ntest1\ncamh_test1\n\n\ndg4fbn77\n7160\ncamh_7160\n\n\nd6yqdq5w\ntest1\ncamh_test1\n\n\nfg65z37c\n7155\ncamh_7155\n\n\nb7k7hnex\n7147\ncamh_7147\n\n\n74du9sm3\n7143\ncamh_7143\n\n\ntzz63fpn\n7002\ncamh_7002\n\n\n5af6gxk8\n3\ncamh_0003\n\n\nefym3a3a\n7152\ncamh_7152\n\n\nr5g8xjsa\n7001\ncamh_7001\n\n\nkgp9s879\n7154\ncamh_7154\n\n\n4uxagkg9\n7153\ncamh_7153\n\n\nzm7pau7e\n7158\ncamh_7158\n\n\n2c27t5s7\n7145\ncamh_7145"
+  },
+  {
+    "objectID": "posts/camh_problem.html#sid-shared-by-different-users",
+    "href": "posts/camh_problem.html#sid-shared-by-different-users",
+    "title": "CAMH sid issue",
+    "section": "sid shared by different users",
+    "text": "sid shared by different users\nLastly, the are some CAMH users that share the same sid code, which are not null sid’s, or have different coupon codes. For instance:\n\n\n\n\ncoupon_code\nsid\nuser_uuid\n\n\n\n\na4ph6gp8\ncamh_7034\n339545c0-4f8d-4df2-90f8-7d8f37c18c56\n\n\nyj6p39wx\ncamh_7038\n33f81739-97b3-42a5-83b1-14d8121ad7ad\n\n\nqcqwxhgy\ncamh_7040\n3c6ff988-6550-4c31-8fa4-c811bc38c500\n\n\nNA\ncamh_7091\n4a8ecf6a-f4fd-4c61-ac06-301ca2d43c5f\n\n\nno id\ncamh_7091\n4a8ecf6a-f4fd-4c61-ac06-301ca2d43c5f\n\n\nq7wqrk7z\ncamh_uid\n575564fe-fc8a-494f-83ad-c6894e763c59\n\n\n56skcxn3\ntest1\n5a172a2d-e3cc-48d2-8927-980f3c592dbf\n\n\nhd3rwm29\ncamh_7056\n5a952d6a-e9db-4265-a12f-04815bc81995\n\n\nd6yqdq5w\ntest1\n70aface8-1270-4003-9627-3ea3d31a9736\n\n\ny6z7tz8p\ncamh_7056\n7e7e03a9-7a36-44fd-9719-79ad05104e51\n\n\ns9j2wjnu\ncamh_7104\n849fb9e1-6f08-4630-bdc2-1cf55dc88dc0\n\n\nuwkbkeqs\ncamh_7040\na5af5ce9-8052-4a56-9bf8-8fc531d799e2\n\n\nc68xadk2\ncamh_7091\na8368a7e-bf94-47ff-bdae-78c8d606f836\n\n\nv53hmcz8\ncamh_7104\nbb97727e-1255-45ce-a067-ed8dc388d99b\n\n\nNA\ncamh_99999\nc2917e19-5656-4670-94fa-e8dabbed7e01\n\n\nno id\ncamh_99999\nc2917e19-5656-4670-94fa-e8dabbed7e01\n\n\nh57kgnjw\ncamh_7091\nc6941b31-f00a-4ef0-86b9-de342fd99944\n\n\n5dr467xr\ncamh_7038\nc7746a55-024f-4781-8a87-c584bfc508a4\n\n\nmengc4dt\ncamh_7034\nc80a272a-92c9-4bb1-adf6-04bc67d1dd49\n\n\nNA\ncamh_7103\nd4c492cc-9afd-4777-996e-af26ec71a093\n\n\nno id\ncamh_7103\nd4c492cc-9afd-4777-996e-af26ec71a093\n\n\njun8hgae\ncamh_uid\nfb0cb4c2-27d6-4e00-8a9d-b846cad1ea99"
   }
 ]
