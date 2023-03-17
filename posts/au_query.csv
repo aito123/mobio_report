@@ -1,0 +1,4 @@
+id,email,confirmed,confirm_code,age,gender,created,config_name,settings,push_version,password,google_id,role,login_attempts,last_login_attempt,type,is_deleted,updated,carevoice_id,guest_id,status,apple_user_id,created_country,last_login_store,store,sync,origin,udid,consent_subscribe,is_synced_neuroglympse,user_group,phase,sid
+0e2856e8-9cd7-404b-98a0-9a28d59c4e2f,c2Vhbi5idXJtYW5AaWNsb3VkLmNvbQ==,true,,,,2022-03-24 16:45:58.851,default,,4,$2a$10$Y/lE74SfRzfne5vEgPT8F.STDGmVkAy04UYaCAUy/VIb179Nm3u0i,,VERIFIED,0,2022-03-24 16:49:02.663,,false,2022-03-24 16:45:58.929,camh_7008,,1,,Canada,,null,,,"[
+  ""250C70EE-AFC3-4A1B-8166-37F5A717095E""
+]",1,,null,,7008
