@@ -130,7 +130,7 @@
     "href": "posts/microserver_problem.html#session_uuid-appears-twice",
     "title": "Microserver issues",
     "section": "session_uuid appears twice",
-    "text": "session_uuid appears twice\n\n\n\n\n  \n\n\n\nThe following session_uuid appears twice:\n\n4e4afec2-7307-424a-86a4-66a6d1d2b45e\nbbc16d24-0d2e-4f68-8846-da8ec3717ab9\n921417b3-c58f-4a80-a8e1-c0381aa81a6a\n\nAlthough these are not exact duplicates, in the variable type we can see that one is registered as Timer and the other one as . Also points & exp_points don’t match having more points in one of the duplicates. Finally, model_number is a missing value(NA) in one of of the duplicates. It’s important to mention that these sessions are stored in CA server."
+    "text": "session_uuid appears twice\n\n\n\n\n  \n\n\n\nThe following session_uuid appears twice:\n\n4e4afec2-7307-424a-86a4-66a6d1d2b45e\nbbc16d24-0d2e-4f68-8846-da8ec3717ab9\n921417b3-c58f-4a80-a8e1-c0381aa81a6a\n\nAlthough these are not exact duplicates, in the variable type we can see that one is registered as Timer and the other one as < snapshot >. Also points & exp_points don’t match having more points in one of the duplicates. Finally, model_number is a missing value(NA) in one of of the duplicates. It’s important to mention that these sessions are stored in CA server."
   },
   {
     "objectID": "posts/microserver_problem.html#account_creation-appears-twice",
