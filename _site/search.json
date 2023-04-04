@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Mobio reports",
     "section": "",
-    "text": "Repository of Mobio Reports.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nMar 16, 2023\n\n\nMicroserver issues\n\n\n\n\n\n\n\nMar 5, 2023\n\n\nCAMH sid issue\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nDate’s problem\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nReported stress problem\n\n\n\n\n\n\n\nJan 24, 2023\n\n\nDuplicate’s problem\n\n\n\n\n\n\nNo matching items"
+    "text": "Repository of Mobio Reports.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\n\n\n\n\n\n\n\nApr 3, 2023\n\n\nMood quality vs Reported stress\n\n\n\n\n\n\n\nMar 16, 2023\n\n\nMicroserver issues\n\n\n\n\n\n\n\nMar 5, 2023\n\n\nCAMH sid issue\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nDate’s problem\n\n\n\n\n\n\n\nFeb 21, 2023\n\n\nReported stress problem\n\n\n\n\n\n\n\nJan 24, 2023\n\n\nDuplicate’s problem\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/camh_problem.html#problem",
@@ -173,5 +173,61 @@
     "title": "Reported stress problem",
     "section": "Obj 2: Origin of the problem",
     "text": "Obj 2: Origin of the problem\nWhen checking the SQL Pad, we can see that the problem is also present in the database.\nFor example, if we query a tabular table to count the values of reported_stress_pre between 2022 and 2023 we could see the following using this SQL syntax in each server:\nselect reported_stress, COUNT(*)\nfrom snapshots\nwhere\n(start BETWEEN '2022-01-01'AND '2023-02-12')\nGROUP BY reported_stress\n\nAU_DB_PRODCA_DB_PRODEU_DB_PRODHK_DB_PRODSG_DB_PROD\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n-1\n536\n\n\n\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n0\n4\n\n\n-1\n4655\n\n\n\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n-1\n215\n\n\n\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n-1\n23\n\n\n1\n2\n\n\n\n\n\n\n\n\nreported_stress\ncount\n\n\n\n\n0\n274\n\n\n-1\n1122"
+  },
+  {
+    "objectID": "posts/mood_quality.html#reported-stress-situation",
+    "href": "posts/mood_quality.html#reported-stress-situation",
+    "title": "Mood quality vs Reported stress",
+    "section": "Reported stress situation",
+    "text": "Reported stress situation\nThe variables regarding the stress slider in the snapshot have not been working properly at least for a year. This plot visualizations can show us the amount of data lost:\n\nFigure 1: Reported stress\n\n\n\n\n\n(a) reported_stress_pre\n\n\n\n\n\n\n\n\n\n(b) reported_stress_post"
+  },
+  {
+    "objectID": "posts/mood_quality.html#mood-quality-situation",
+    "href": "posts/mood_quality.html#mood-quality-situation",
+    "title": "Mood quality vs Reported stress",
+    "section": "Mood quality situation",
+    "text": "Mood quality situation\nThe variables regarding mood quality do not require a plot visualization, instead its range of values can be summarized in a table:\n\n\nTable 1: Mood quality\n\n\n\n\n\n\n(a) mood_quality_pre \n  \n  \n    \n      mood_quality_pre\n      n\n    \n  \n  \n    -1.0\n11670\n    left_blank\n8214\n    NA\n62886\n  \n  \n  \n\n\n\n\n\n\n\n(b) mood_quality_post \n  \n  \n    \n      mood_quality_post\n      n\n    \n  \n  \n    -1.0\n4352\n    left_blank\n3390\n    NA\n75028"
+  },
+  {
+    "objectID": "posts/mood_quality.html#conclusion",
+    "href": "posts/mood_quality.html#conclusion",
+    "title": "Mood quality vs Reported stress",
+    "section": "Conclusion",
+    "text": "Conclusion\nThe mood quality variables are not adding value to the database so in that sense should no longer be supported."
+  },
+  {
+    "objectID": "posts/mood_quality.html#problem-1",
+    "href": "posts/mood_quality.html#problem-1",
+    "title": "Mood quality vs Reported stress",
+    "section": "Problem",
+    "text": "Problem\nAfter reviewing the csv data downloaded from the microserver API, these issues have been identified:"
+  },
+  {
+    "objectID": "posts/mood_quality.html#timestamps-are-not-correctly-formatted",
+    "href": "posts/mood_quality.html#timestamps-are-not-correctly-formatted",
+    "title": "Mood quality vs Reported stress",
+    "section": "timestamps are not correctly formatted",
+    "text": "timestamps are not correctly formatted\nIn the microserver data there are 11 date-time variables, from which 10 out of 11 currently do not capture the UTC offset +00:00.\n\n\n\n\n  \n\n\n\nAlso, the default missing value for meditation observations in intent_start and intent_finish is “1-01-03T00:00:00”."
+  },
+  {
+    "objectID": "posts/mood_quality.html#session_uuid-appears-twice",
+    "href": "posts/mood_quality.html#session_uuid-appears-twice",
+    "title": "Mood quality vs Reported stress",
+    "section": "session_uuid appears twice",
+    "text": "session_uuid appears twice\n\n\n\n\n  \n\n\n\nThe following session_uuid appears twice:\n\n4e4afec2-7307-424a-86a4-66a6d1d2b45e\nbbc16d24-0d2e-4f68-8846-da8ec3717ab9\n921417b3-c58f-4a80-a8e1-c0381aa81a6a\n\nAlthough these are not exact duplicates, in the variable type we can see that one is registered as Timer and the other one as < snapshot >. Also points & exp_points don’t match having more points in one of the duplicates. Finally, model_number is a missing value(NA) in one of of the duplicates. It’s important to mention that these sessions are stored in CA server."
+  },
+  {
+    "objectID": "posts/mood_quality.html#account_creation-appears-twice",
+    "href": "posts/mood_quality.html#account_creation-appears-twice",
+    "title": "Mood quality vs Reported stress",
+    "section": "account_creation appears twice",
+    "text": "account_creation appears twice\n\n\n\n\n  \n\n\n\nThey appear to be the same except that are stored in different server_location.\nChecking SQL Pad it’s confirmed that these users are been stored in different server_location at the same time:\nExample user: 0e2856e8-9cd7-404b-98a0-9a28d59c4e2f\nselect *\nfrom users\nwhere text(id) = '0e2856e8-9cd7-404b-98a0-9a28d59c4e2f'\n\n\nAU_DB_PRODCA_DB_PROD"
+  },
+  {
+    "objectID": "posts/mood_quality.html#some-observations-are-type-null-none-7",
+    "href": "posts/mood_quality.html#some-observations-are-type-null-none-7",
+    "title": "Mood quality vs Reported stress",
+    "section": "Some observations are type “null”, “none”, “7”",
+    "text": "Some observations are type “null”, “none”, “7”\n\n\n\n\n\n\n  \n  \n    \n      type\n      n\n      perc\n    \n  \n  \n    <snapshot>\n10667\n12.8875%\n    7\n2\n0.0024%\n    ac2048\n47\n0.0568%\n    account_creation\n21677\n26.1894%\n    JourneyActivity\n497\n0.6005%\n    JourneyLesson\n16868\n20.3794%\n    JourneySuggested\n1189\n1.4365%\n    JourneyTimer\n355\n0.4289%\n    Library\n6607\n7.9824%\n    None\n4\n0.0048%\n    null\n19727\n23.8335%\n    Suggested\n1942\n2.3463%\n    Timer\n3188\n3.8516%\n  \n  \n  \n\n\n\n\nThis situation occurs in all the servers AU, BR, CA, GE, HK, SG, SZ, UK, US.\n\n\n\n\n\n\n  \n  \n    \n      server_location\n      type\n      n\n    \n  \n  \n    AU\nnull\n1288\n    BR\nnull\n139\n    CA\nnull\n12729\n    GE\nnull\n1260\n    HK\nnull\n178\n    SG\nnull\n1936\n    UK\n7\n2\n    UK\nnull\n199\n    US\nnull\n1998\n  \n  \n  \n\n\n\n\nIs uncertain the origin of these type of observations, it may be an error/bug in the API assigning the correct type of observation, an incomplete observation made by the user, etc,\nIt’s important to know that the observations type “7” are duplicates in different servers (SZ, UK):"
   }
 ]

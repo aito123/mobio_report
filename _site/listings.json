@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/mood_quality.html",
       "/posts/microserver_problem.html",
       "/posts/camh_problem.html",
       "/posts/dates_problem.html",
