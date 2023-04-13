@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.310">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -141,17 +112,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Mobio Report</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -205,9 +178,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="cell">
-
-</div>
 <section id="problem" class="level2">
 <h2 class="anchored" data-anchor-id="problem">Problem</h2>
 <p>After reviewing the csv data downloaded from the microserver API, these issues have been identified:</p>
@@ -264,9 +234,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Example user: <code>0e2856e8-9cd7-404b-98a0-9a28d59c4e2f</code></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sqlpostgresql code-with-copy"><code class="sourceCode sqlpostgresql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="op">*</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> users</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> <span class="fu">text</span>(<span class="kw">id</span>) <span class="op">=</span> <span class="st">'0e2856e8-9cd7-404b-98a0-9a28d59c4e2f'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> <span class="dt">text</span>(<span class="kw">id</span>) <span class="op">=</span> <span class="vs">'0e2856e8-9cd7-404b-98a0-9a28d59c4e2f</span><span class="st">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="column-page-inset">
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">AU_DB_PROD</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">CA_DB_PROD</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
@@ -307,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#ibvkoqwjtj) .gt_table {
+#ibvkoqwjtj .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -332,7 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_heading {
+#ibvkoqwjtj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -344,12 +314,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_caption {
+#ibvkoqwjtj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#ibvkoqwjtj) .gt_title {
+#ibvkoqwjtj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -361,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#ibvkoqwjtj) .gt_subtitle {
+#ibvkoqwjtj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -373,13 +343,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#ibvkoqwjtj) .gt_bottom_border {
+#ibvkoqwjtj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_col_headings {
+#ibvkoqwjtj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -394,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_col_heading {
+#ibvkoqwjtj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -414,7 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#ibvkoqwjtj) .gt_column_spanner_outer {
+#ibvkoqwjtj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -426,15 +396,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-:where(#ibvkoqwjtj) .gt_column_spanner_outer:first-child {
+#ibvkoqwjtj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#ibvkoqwjtj) .gt_column_spanner_outer:last-child {
+#ibvkoqwjtj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#ibvkoqwjtj) .gt_column_spanner {
+#ibvkoqwjtj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -446,7 +416,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#ibvkoqwjtj) .gt_group_heading {
+#ibvkoqwjtj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -472,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   text-align: left;
 }
 
-:where(#ibvkoqwjtj) .gt_empty_group_heading {
+#ibvkoqwjtj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -487,15 +457,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#ibvkoqwjtj) .gt_from_md > :first-child {
+#ibvkoqwjtj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#ibvkoqwjtj) .gt_from_md > :last-child {
+#ibvkoqwjtj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#ibvkoqwjtj) .gt_row {
+#ibvkoqwjtj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -514,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#ibvkoqwjtj) .gt_stub {
+#ibvkoqwjtj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -527,7 +497,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ibvkoqwjtj) .gt_stub_row_group {
+#ibvkoqwjtj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -541,11 +511,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#ibvkoqwjtj) .gt_row_group_first td {
+#ibvkoqwjtj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#ibvkoqwjtj) .gt_summary_row {
+#ibvkoqwjtj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -555,16 +525,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ibvkoqwjtj) .gt_first_summary_row {
+#ibvkoqwjtj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_first_summary_row.thick {
+#ibvkoqwjtj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#ibvkoqwjtj) .gt_last_summary_row {
+#ibvkoqwjtj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -574,7 +544,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_grand_summary_row {
+#ibvkoqwjtj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -584,7 +554,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ibvkoqwjtj) .gt_first_grand_summary_row {
+#ibvkoqwjtj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -594,11 +564,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_striped {
+#ibvkoqwjtj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#ibvkoqwjtj) .gt_table_body {
+#ibvkoqwjtj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -607,7 +577,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_footnotes {
+#ibvkoqwjtj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -621,7 +591,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_footnote {
+#ibvkoqwjtj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -630,7 +600,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ibvkoqwjtj) .gt_sourcenotes {
+#ibvkoqwjtj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -644,7 +614,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#ibvkoqwjtj) .gt_sourcenote {
+#ibvkoqwjtj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -652,120 +622,145 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#ibvkoqwjtj) .gt_left {
+#ibvkoqwjtj .gt_left {
   text-align: left;
 }
 
-:where(#ibvkoqwjtj) .gt_center {
+#ibvkoqwjtj .gt_center {
   text-align: center;
 }
 
-:where(#ibvkoqwjtj) .gt_right {
+#ibvkoqwjtj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#ibvkoqwjtj) .gt_font_normal {
+#ibvkoqwjtj .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#ibvkoqwjtj) .gt_font_bold {
+#ibvkoqwjtj .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#ibvkoqwjtj) .gt_font_italic {
+#ibvkoqwjtj .gt_font_italic {
   font-style: italic;
 }
 
-:where(#ibvkoqwjtj) .gt_super {
+#ibvkoqwjtj .gt_super {
   font-size: 65%;
 }
 
-:where(#ibvkoqwjtj) .gt_footnote_marks {
+#ibvkoqwjtj .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#ibvkoqwjtj) .gt_asterisk {
+#ibvkoqwjtj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#ibvkoqwjtj) .gt_indent_1 {
+#ibvkoqwjtj .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#ibvkoqwjtj) .gt_indent_2 {
+#ibvkoqwjtj .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#ibvkoqwjtj) .gt_indent_3 {
+#ibvkoqwjtj .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#ibvkoqwjtj) .gt_indent_4 {
+#ibvkoqwjtj .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#ibvkoqwjtj) .gt_indent_5 {
+#ibvkoqwjtj .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="type">type</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">n</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="perc">perc</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="type" class="gt_row gt_left">&lt;snapshot&gt;</td>
-<td headers="n" class="gt_row gt_right">20735</td>
-<td headers="perc" class="gt_row gt_right">21.982%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">7</td>
-<td headers="n" class="gt_row gt_right">4</td>
-<td headers="perc" class="gt_row gt_right">0.004%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">ac2048</td>
-<td headers="n" class="gt_row gt_right">46</td>
-<td headers="perc" class="gt_row gt_right">0.049%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">account_creation</td>
-<td headers="n" class="gt_row gt_right">21908</td>
-<td headers="perc" class="gt_row gt_right">23.226%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">JourneyActivity</td>
-<td headers="n" class="gt_row gt_right">512</td>
-<td headers="perc" class="gt_row gt_right">0.543%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">JourneyLesson</td>
-<td headers="n" class="gt_row gt_right">17198</td>
-<td headers="perc" class="gt_row gt_right">18.232%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">JourneySuggested</td>
-<td headers="n" class="gt_row gt_right">1223</td>
-<td headers="perc" class="gt_row gt_right">1.297%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">JourneyTimer</td>
-<td headers="n" class="gt_row gt_right">376</td>
-<td headers="perc" class="gt_row gt_right">0.399%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">Library</td>
-<td headers="n" class="gt_row gt_right">6986</td>
-<td headers="perc" class="gt_row gt_right">7.406%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">None</td>
-<td headers="n" class="gt_row gt_right">4</td>
-<td headers="perc" class="gt_row gt_right">0.004%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">19818</td>
-<td headers="perc" class="gt_row gt_right">21.010%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">Suggested</td>
-<td headers="n" class="gt_row gt_right">2025</td>
-<td headers="perc" class="gt_row gt_right">2.147%</td></tr>
-    <tr><td headers="type" class="gt_row gt_left">Timer</td>
-<td headers="n" class="gt_row gt_right">3492</td>
-<td headers="perc" class="gt_row gt_right">3.702%</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true">
+<thead class="gt_col_headings">
+<tr class="header">
+<th id="type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">type</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+<th id="perc" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">perc</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="type">&lt;snapshot&gt;</td>
+<td class="gt_row gt_right" headers="n">20735</td>
+<td class="gt_row gt_right" headers="perc">21.982%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="type">7</td>
+<td class="gt_row gt_right" headers="n">4</td>
+<td class="gt_row gt_right" headers="perc">0.004%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="type">ac2048</td>
+<td class="gt_row gt_right" headers="n">46</td>
+<td class="gt_row gt_right" headers="perc">0.049%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="type">account_creation</td>
+<td class="gt_row gt_right" headers="n">21908</td>
+<td class="gt_row gt_right" headers="perc">23.226%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="type">JourneyActivity</td>
+<td class="gt_row gt_right" headers="n">512</td>
+<td class="gt_row gt_right" headers="perc">0.543%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="type">JourneyLesson</td>
+<td class="gt_row gt_right" headers="n">17198</td>
+<td class="gt_row gt_right" headers="perc">18.232%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="type">JourneySuggested</td>
+<td class="gt_row gt_right" headers="n">1223</td>
+<td class="gt_row gt_right" headers="perc">1.297%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="type">JourneyTimer</td>
+<td class="gt_row gt_right" headers="n">376</td>
+<td class="gt_row gt_right" headers="perc">0.399%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="type">Library</td>
+<td class="gt_row gt_right" headers="n">6986</td>
+<td class="gt_row gt_right" headers="perc">7.406%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="type">None</td>
+<td class="gt_row gt_right" headers="n">4</td>
+<td class="gt_row gt_right" headers="perc">0.004%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">19818</td>
+<td class="gt_row gt_right" headers="perc">21.010%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="type">Suggested</td>
+<td class="gt_row gt_right" headers="n">2025</td>
+<td class="gt_row gt_right" headers="perc">2.147%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="type">Timer</td>
+<td class="gt_row gt_right" headers="n">3492</td>
+<td class="gt_row gt_right" headers="perc">3.702%</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -778,7 +773,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-:where(#jqaazbccnq) .gt_table {
+#jqaazbccnq .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -803,7 +798,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_heading {
+#jqaazbccnq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -815,12 +810,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_caption {
+#jqaazbccnq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-:where(#jqaazbccnq) .gt_title {
+#jqaazbccnq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -832,7 +827,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-:where(#jqaazbccnq) .gt_subtitle {
+#jqaazbccnq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -844,13 +839,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-:where(#jqaazbccnq) .gt_bottom_border {
+#jqaazbccnq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_col_headings {
+#jqaazbccnq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -865,7 +860,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_col_heading {
+#jqaazbccnq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -885,7 +880,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#jqaazbccnq) .gt_column_spanner_outer {
+#jqaazbccnq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -897,15 +892,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-:where(#jqaazbccnq) .gt_column_spanner_outer:first-child {
+#jqaazbccnq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#jqaazbccnq) .gt_column_spanner_outer:last-child {
+#jqaazbccnq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#jqaazbccnq) .gt_column_spanner {
+#jqaazbccnq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -917,7 +912,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-:where(#jqaazbccnq) .gt_group_heading {
+#jqaazbccnq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -943,7 +938,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   text-align: left;
 }
 
-:where(#jqaazbccnq) .gt_empty_group_heading {
+#jqaazbccnq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -958,15 +953,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-:where(#jqaazbccnq) .gt_from_md > :first-child {
+#jqaazbccnq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#jqaazbccnq) .gt_from_md > :last-child {
+#jqaazbccnq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#jqaazbccnq) .gt_row {
+#jqaazbccnq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -985,7 +980,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-:where(#jqaazbccnq) .gt_stub {
+#jqaazbccnq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -998,7 +993,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#jqaazbccnq) .gt_stub_row_group {
+#jqaazbccnq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1012,11 +1007,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: top;
 }
 
-:where(#jqaazbccnq) .gt_row_group_first td {
+#jqaazbccnq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#jqaazbccnq) .gt_summary_row {
+#jqaazbccnq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1026,16 +1021,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#jqaazbccnq) .gt_first_summary_row {
+#jqaazbccnq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_first_summary_row.thick {
+#jqaazbccnq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#jqaazbccnq) .gt_last_summary_row {
+#jqaazbccnq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1045,7 +1040,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_grand_summary_row {
+#jqaazbccnq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1055,7 +1050,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#jqaazbccnq) .gt_first_grand_summary_row {
+#jqaazbccnq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1065,11 +1060,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_striped {
+#jqaazbccnq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#jqaazbccnq) .gt_table_body {
+#jqaazbccnq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1078,7 +1073,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_footnotes {
+#jqaazbccnq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1092,7 +1087,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_footnote {
+#jqaazbccnq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1101,7 +1096,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#jqaazbccnq) .gt_sourcenotes {
+#jqaazbccnq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1115,7 +1110,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-:where(#jqaazbccnq) .gt_sourcenote {
+#jqaazbccnq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1123,114 +1118,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-:where(#jqaazbccnq) .gt_left {
+#jqaazbccnq .gt_left {
   text-align: left;
 }
 
-:where(#jqaazbccnq) .gt_center {
+#jqaazbccnq .gt_center {
   text-align: center;
 }
 
-:where(#jqaazbccnq) .gt_right {
+#jqaazbccnq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#jqaazbccnq) .gt_font_normal {
+#jqaazbccnq .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#jqaazbccnq) .gt_font_bold {
+#jqaazbccnq .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#jqaazbccnq) .gt_font_italic {
+#jqaazbccnq .gt_font_italic {
   font-style: italic;
 }
 
-:where(#jqaazbccnq) .gt_super {
+#jqaazbccnq .gt_super {
   font-size: 65%;
 }
 
-:where(#jqaazbccnq) .gt_footnote_marks {
+#jqaazbccnq .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-:where(#jqaazbccnq) .gt_asterisk {
+#jqaazbccnq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#jqaazbccnq) .gt_indent_1 {
+#jqaazbccnq .gt_indent_1 {
   text-indent: 5px;
 }
 
-:where(#jqaazbccnq) .gt_indent_2 {
+#jqaazbccnq .gt_indent_2 {
   text-indent: 10px;
 }
 
-:where(#jqaazbccnq) .gt_indent_3 {
+#jqaazbccnq .gt_indent_3 {
   text-indent: 15px;
 }
 
-:where(#jqaazbccnq) .gt_indent_4 {
+#jqaazbccnq .gt_indent_4 {
   text-indent: 20px;
 }
 
-:where(#jqaazbccnq) .gt_indent_5 {
+#jqaazbccnq .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="server_location">server_location</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="type">type</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n">n</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="server_location" class="gt_row gt_left">AU</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">1316</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">BR</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">138</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">CA</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">12663</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">GE</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">1246</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">HK</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">178</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">SG</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">1922</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">SZ</td>
-<td headers="type" class="gt_row gt_left">7</td>
-<td headers="n" class="gt_row gt_right">2</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">SZ</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">191</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">UK</td>
-<td headers="type" class="gt_row gt_left">7</td>
-<td headers="n" class="gt_row gt_right">2</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">UK</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">198</td></tr>
-    <tr><td headers="server_location" class="gt_row gt_left">US</td>
-<td headers="type" class="gt_row gt_left">null</td>
-<td headers="n" class="gt_row gt_right">1966</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true">
+<thead class="gt_col_headings">
+<tr class="header">
+<th id="server_location" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">server_location</th>
+<th id="type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">type</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="server_location">AU</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">1316</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="server_location">BR</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">138</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="server_location">CA</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">12663</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="server_location">GE</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">1246</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="server_location">HK</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">178</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="server_location">SG</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">1922</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="server_location">SZ</td>
+<td class="gt_row gt_left" headers="type">7</td>
+<td class="gt_row gt_right" headers="n">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="server_location">SZ</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">191</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="server_location">UK</td>
+<td class="gt_row gt_left" headers="type">7</td>
+<td class="gt_row gt_right" headers="n">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="server_location">UK</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">198</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="server_location">US</td>
+<td class="gt_row gt_left" headers="type">null</td>
+<td class="gt_row gt_right" headers="n">1966</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1278,9 +1294,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1345,6 +1375,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
